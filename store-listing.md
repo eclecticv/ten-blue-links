@@ -1,14 +1,17 @@
-# Chrome Web Store — Ten Blue Links v0.2.0
+# Chrome Web Store — Ten Blue Links v0.3.2
+
+Developer profile to match the existing **And/or Labs Inc.** account
+(same as Slop or Not!): andorlabs.ca, EU trader, Calgary AB address.
+
+---
 
 ## Name
 Ten Blue Links
 
-(13/45 chars)
+## Short description (132 char max)
+Removes AI Overviews, ads, and clutter from Google Search. Hides everything between you and the ten blue links — automatically.
 
-## Short description
-Removes AI Overviews, ads, and clutter from Google Search. No settings, no toggles — the SERP you remember.
-
-(112/132 chars)
+(122 chars)
 
 ## Category
 Productivity
@@ -20,167 +23,165 @@ English (US)
 
 ## Detailed description
 
-Remember when a Google search was ten blue links?
+Removes AI Overviews, ads, and clutter from Google Search. Hides everything between you and the ten blue links — automatically.
 
-These days, before you reach the first organic result, you scroll past an AI Overview, three sponsored listings, a "People also ask" box, a knowledge panel, "Things to know," a Discussions block, an AI Mode tab, "Popular products," and (on commercial queries) a Local Results map. The result you actually wanted is somewhere down there.
+Google Search used to be ten blue links. Now, before the first organic result, you scroll past an AI Overview, three sponsored listings, a People Also Ask box, a knowledge panel, "Things to know," a Discussions block, an AI Mode tab, "Popular products," and on commercial queries, a Local Results map and a left-side "Refine results" filter panel. The result you actually wanted is somewhere down there.
 
-Ten Blue Links quietly removes everything between you and the results.
+This extension quietly removes everything between you and the results. There is no settings panel to configure, no toolbar popup, no account, no telemetry. Install it once and the next time you search, you see ten blue links.
 
 **What it hides**
 - AI Overviews and AI Mode entry points
 - Sponsored results, shopping ads, and inline ad blocks
 - People Also Ask
 - Discussions and forums
-- Knowledge panel / right sidebar
-- Featured snippet cards
-- "Things to know" and "Things to consider" widgets
-- Popular products, Deals on X, In stores nearby, Local Results (Places + Map)
+- Knowledge panel and right sidebar
+- "Things to know" widgets
+- Popular products, Deals on X, In stores nearby, Local Results
+- Article thumbnails next to organic results (favicons remain for context)
 - People also search for
+- The shopping refinement chip bar and left-rail filter panel on commercial queries
 
 **What it keeps**
-- The ten blue links
+- The organic search results
 - Search filter tabs (All, Images, Videos, Maps, News, Shopping)
 - Pagination
-- The query box, of course
+- The query box
 
-**What it doesn't do**
-- No settings panel
-- No toolbar popup
-- No telemetry, no account, no upsell
-- No network requests beyond the page you're already loading
-- No permissions beyond `www.google.com` — it cannot read or modify any other site
+The extension uses a structural rule rather than a list of section names: any section without an organic search result is treated as noise. New widgets Google ships get hidden automatically, without an update.
 
-**Why this exists**
+When you click through to a real article instead of reading an AI summary, the publisher gets the page view, the ad impression, and the chance to earn a subscriber. The open web depends on readers reaching the source.
 
-Two reasons.
-
-One — convenience. The job of a search engine is to find pages on the web. Every pixel above the first result is a tax on that job. This extension removes the tax.
-
-Two — supporting publishers. When you click through to a real article instead of reading an AI Overview that summarized it, the publisher gets the page view, the ad impression, and the chance to earn a subscriber. The open web depends on readers reaching the source. Ten Blue Links exists because the source is worth a click.
-
-**How it's different from other AI Overview blockers**
-
-Most extensions in this category target the AI Overview specifically and ship a settings panel for everything else. Ten Blue Links takes one opinionated stance — "show me search results, hide everything else" — and removes the toggles entirely. The product decision *is* the value prop.
-
-Under the hood, the extension uses a structural rule rather than a denylist of section names. That means when Google adds a new widget next quarter, the extension hides it automatically — no update required on your end.
-
-**Single purpose**
-
-Ten Blue Links has one purpose: hide non-result content from Google Search pages so users can see the organic results without visual interference. It does not block ads on other websites, modify other search engines, or interact with any page outside `www.google.com/search`.
-
-**Open source**
-
-The entire extension is ~70 lines of JavaScript and a small stylesheet. You can read the source on GitHub.
+Ten Blue Links is not an attack on AI or on Google. It is an attempt to give readers a search experience that values links to real pages, and a way for publishers to keep meeting their readers.
 
 ---
 
-## Permission justifications
+## Permissions
 
-This extension declares no permissions beyond `host_permissions` for `www.google.com`. It uses content scripts only — no background script, no `storage`, no `tabs`, no `webRequest`. It cannot read or modify any other site, cannot make outbound network requests, and stores nothing.
-
-The single `host_permissions` entry is required to inject the content script that performs the hiding.
+This extension uses content scripts that run only on Google Search pages (`www.google.com/search*`). It declares no additional permissions. It has no background script, no `storage`, no `tabs`, no network access. It cannot read or modify any other site.
 
 ---
 
-## Privacy policy
+## Privacy practices (submission form answers)
 
-**Data collected**: None.
+**Single purpose:**
+Ten Blue Links has one purpose — hide non-result content (AI Overviews, sponsored listings, knowledge panel, People Also Ask, discussions, videos, products, and local pack widgets) from Google Search result pages, leaving only the organic search results, filter tabs, and pagination visible.
 
-**Data shared with third parties**: None.
+**Justification for host permissions (`www.google.com`):**
+Required to inject the content script that performs the hiding.
 
-**Data sold**: None.
+**Data collection:** None.
 
-Ten Blue Links runs entirely in your browser. It does not collect, store, transmit, or share any data — not search queries, not click history, not anonymous usage statistics, nothing. It has no background script, no network requests, no analytics SDK, and no account system. There is nothing to opt out of because there is nothing to opt in to.
+**Data sharing:** None.
 
-The only resource it accesses is the Google Search page you are currently viewing, which it modifies locally in your browser to hide non-result content. That modification happens via CSS and JavaScript injected by the extension; the modified DOM never leaves your machine.
+**Data declarations (three checkboxes in the submission form, all confirmed):**
+- Not being sold to third parties, outside of the approved use cases
+- Not being used or transferred for purposes that are unrelated to the item's core functionality
+- Not being used or transferred to determine creditworthiness or for lending purposes
+
+**Privacy policy URL:**
+Suggested host: `https://andorlabs.ca/ten-blue-links/privacy/` or a GitHub Pages site (same pattern as Slop or Not). Privacy policy content below.
 
 ---
 
-## Single purpose statement
+## Privacy policy (host this somewhere reachable)
 
-(For Chrome Web Store submission form)
+Ten Blue Links does not collect, store, transmit, or share any data. The extension runs entirely in your browser. It has no background script, no network requests, no analytics, and no account system. There is nothing to opt out of because there is nothing to opt in to.
 
-This extension hides non-result content (AI Overviews, sponsored listings, knowledge panels, "People also ask," discussions, videos, products, and local pack widgets) from Google Search result pages, leaving only the organic search results, filter tabs, and pagination visible.
+The only resource the extension accesses is the Google Search page you are currently viewing, which it modifies locally in your browser to hide non-result content. The modified DOM never leaves your machine.
+
+Contact: vishveshwar.jatain@gmail.com
+
+---
+
+## Developer info (matches existing And/or Labs Inc. profile)
+
+- **Developer name:** And/or Labs Inc.
+- **Website:** https://andorlabs.ca
+- **Email:** vishveshwar.jatain@gmail.com
+- **Address:** 221 27 Ave NW, Calgary, AB T2M 2H5, Canada
+- **Trader status:** Trader (EU disclosure)
 
 ---
 
 ## Screenshots (1280×800, 1–5 required)
 
-Capture in a clean browser window, no bookmarks bar, default Chrome chrome. Suggested set:
+Capture from your real Chrome with Ten Blue Links installed. Suggested:
 
-1. **Hero: before/after split on a commercial query** (e.g., `best running shoes`)
-   - Left: stock SERP showing AI Overview + Popular products + Deals + Local pack + organics buried
-   - Right: same query with extension active — only the organic results visible
-   - Caption: "Same query. One change."
-
+1. **Hero before/after on a commercial query** (e.g., `best running shoes`)
+   - Caption: *"Same query. One change."*
 2. **Information query** (e.g., `how to buy shoes`)
-   - Stock SERP with AI Overview, PAA, Discussions, Videos
-   - Cleaned version
-   - Caption: "Ten blue links, the way they were."
-
-3. **News query** (e.g., `cpi report`)
-   - Demonstrates "Top stories" handling
-   - Caption: "Works on every query type."
-
-4. **The settings page that isn't**
-   - Empty Chrome extension details page or a styled card that just says "No settings. By design."
-   - Caption: "Install it. Forget it."
-
-5. **Privacy / permissions screen**
-   - Chrome extension permissions panel showing only `www.google.com`
-   - Caption: "One permission. One purpose."
+   - Caption: *"Ten blue links, the way they were."*
+3. **Shopping query** (e.g., `best bikes 2026`) — shows refinement chip bar + sidebar removed
+   - Caption: *"Refine, filter, repeat — gone."*
+4. **News query** (e.g., `cpi report`)
+   - Caption: *"Works on every query type."*
+5. **Permissions screen**
+   - Chrome extension details panel showing only `www.google.com`
+   - Caption: *"One permission. One purpose."*
 
 ---
 
-## Promo tiles (optional, recommended for discoverability)
+## Promo tiles (already generated)
 
-### Small promo tile (440×280)
-
-Background: white (#ffffff)
-Icon: the three-blue-lines icon, centered-left
-Headline (right of icon, navy #0f172a, 32px bold): "Ten Blue Links"
-Subhead (16px regular, slate #475569): "Google Search, decluttered."
-
-### Marquee promo tile (1400×560, only used if Google features the extension)
-
-Same layout, larger. Optional second line: "AI Overviews, ads, and noise — hidden. Real results — kept."
+- `promo-small.png` — 440×280
+- `promo-marquee.png` — 1400×560
 
 ---
 
-## Listing keywords / tags (Chrome Web Store discovery)
-
-Suggested (use what's allowed, the form may cap at 5–10):
+## Listing keywords / tags
 
 - google search
 - ai overview
-- block ai
-- remove ads
 - declutter
 - minimal
 - privacy
 - no settings
 - search results
-- organic results
+- supports publishers
 
 ---
 
 ## Support URL
 
-Suggested: GitHub repo issues page. The Web Store requires a working support URL.
+Suggested: a GitHub repo issues page, or `https://andorlabs.ca/contact/`.
 
-## Homepage URL (optional)
+## Homepage URL
 
-Suggested: andorlabs.ca or a dedicated GitHub Pages site for the extension.
+Suggested: `https://andorlabs.ca/ten-blue-links/` (or the repo).
 
 ---
 
 ## Version history copy (for the listing changelog)
 
-### v0.2.0 — Self-adaptive
-Replaced the per-section heading list with a structural rule: any section without an organic search result is hidden. The extension now handles new Google widgets automatically, without an update.
+### v0.3.2 — Shopping refinements
+Hides the chip bar (Mountain / Road / Hybrid / …) and left-side "Refine results" panel that Google overlays on product queries.
 
-### v0.1.3 — Commercial SERP coverage
-Added handling for "Popular products," "Deals on …", "In stores nearby," "Local Results," "Places."
+### v0.3.1 — Layout
+Reclaims the empty right-rail space and widens the results column to a comfortable reading width without floating it to the middle of the page.
+
+### v0.3.0 — Featured-image thumbnails, PAA siblings
+Removes article-result thumbnails (favicons kept). Catches the People Also Ask accordions on the A/B variant where they ship without a section header.
+
+### v0.2.0 — Self-adaptive
+Replaced the per-section name list with a structural rule: any section without an organic search result is hidden. New Google widgets are handled automatically.
 
 ### v0.1.0 — Initial release
-AI Overviews, sponsored results, PAA, and knowledge panel hidden by default.
+AI Overviews, sponsored results, People Also Ask, and knowledge panel hidden by default.
+
+---
+
+## Submission checklist
+
+- [x] Manifest v3, version 0.3.2
+- [x] Icons at 16, 48, 128 px
+- [x] Zip bundle: `ten-blue-links-v0.3.2.zip` (10 KB, 6 files)
+- [x] Promo tile 440×280
+- [x] Promo tile 1400×560 (optional, for marquee)
+- [x] Detailed description copy
+- [x] Permissions justification
+- [x] Single purpose statement
+- [ ] **1–5 screenshots at 1280×800** (capture in your browser)
+- [ ] **Privacy policy hosted at a reachable URL** (paste content above to andorlabs.ca or Pages)
+- [ ] **Support URL** (repo issues page or contact page)
+- [ ] Use existing **And/or Labs Inc.** developer account
+- [ ] Pay one-time **$5 developer fee** if not already paid (Slop or Not implies you have)
