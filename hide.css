@@ -38,7 +38,16 @@ g-shopping-pack,
 
 /* "Things to know" widgets */
 [data-attrid*="things_to_know"],
-[data-attrid*="things_to_consider"] {
+[data-attrid*="things_to_consider"],
+
+/* Shopping refinement chip bar (Mountain / Road / Gravel / Hybrid / …)
+   that appears below the main filter tabs on product/commercial queries */
+div.yXu61c,
+
+/* Left-rail "Refine results" filter panel (Type / Price / Age Group /
+   Features / Suspension Type / Department) on shopping-style queries */
+ul.xvRDEb,
+div.Pl4aJc {
   display: none !important;
 }
 
