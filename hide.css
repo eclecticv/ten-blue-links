@@ -1,19 +1,21 @@
 /*
- * Selectors targeting Google SERP clutter as of 2026-05.
- * Google rotates jsname/jscontroller hashes; expect ~monthly drift.
- * Group by intent so it's obvious what to update when a section reappears.
+ * Fast-paint hides for known-stable selectors verified against live DOM
+ * 2026-05-14. content.js handles class-name drift via heading-text matching.
  */
 
-/* --- AI Overviews & AI Mode entry points --- */
-div[data-attrid*="GenerativeAI"],
-div[data-subtree="aio"],
-[data-async-context*="ai_overview"],
+/* AI Overview wrapper and its inner skeleton */
+div.M8OgIe,
 #m-x-content,
+[jscontroller="AkrxPe"],
+[data-subtree="aio"],
+[data-attrid*="GenerativeAI"],
+
+/* AI Mode entry points */
 a[href*="udm=50"],
 [aria-label*="AI Mode" i],
 [aria-label*="Ask AI" i],
 
-/* --- Sponsored / Ads (top, bottom, inline, shopping) --- */
+/* Sponsored / Ads */
 #tads,
 #tadsb,
 #bottomads,
@@ -23,24 +25,13 @@ div[aria-label="Ads" i],
 .commercial-unit-desktop-rhs,
 g-shopping-pack,
 
-/* --- People Also Ask --- */
-div[jsname="Cpkphb"],
-div[data-initq],
-[data-async-context*="related_question"],
-related-question-pair,
-
-/* --- Discussions, Forums, Perspectives --- */
-[data-async-context*="discussions_and_forums"],
-[data-async-context*="perspectives"],
-
-/* --- Knowledge Panel / Right rail --- */
+/* Knowledge Panel / Right rail */
 #rhs,
 
-/* --- Featured Snippet cards --- */
-.kp-blk,
+/* Featured Snippet cards (when not the main answer) */
 .ULSxyf .g-blk,
 
-/* --- "Things to know" / "Things to consider" widgets --- */
+/* "Things to know" widgets */
 [data-attrid*="things_to_know"],
 [data-attrid*="things_to_consider"] {
   display: none !important;

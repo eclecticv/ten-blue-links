@@ -1,34 +1,39 @@
 /*
  * Heading-text-based section hiding. CSS handles fast paint;
- * this catches sections whose class names rotate (Google ships changes
- * roughly monthly). Matches headings, walks up to the section container,
- * sets display:none. MutationObserver re-runs on late-injected nodes.
+ * this catches sections whose class names rotate. Walks from a matched
+ * heading up to the smallest ancestor that doesn't yet contain organic
+ * results outside its subtree — that's the section boundary.
  */
 
 const HIDE_HEADINGS = new Set([
+  'AI Overview',
   'Discussions and forums',
   'Forums',
   'Videos',
   'Short videos',
   'People also ask',
   'People also search for',
-  'Related searches',
   'Top stories',
+  'Top sites',
   'Things to know',
   'Things to consider',
   'Shopping results',
-  'AI Overview',
-  'From sources across the web',
+  'Sponsored',
 ]);
 
-const STOP_IDS = new Set(['center_col', 'rcnt', 'main', 'search', 'rso']);
+const STOP_IDS = new Set(['center_col', 'rcnt', 'main', 'search', 'rso', 'botstuff', 'cnt']);
+
+const ORGANIC = 'h3.LC20lb';
 
 function findSection(el) {
   let cur = el;
   while (cur && cur.parentElement) {
-    if (cur.matches?.('g-section-with-header, [data-async-context]')) return cur;
     const p = cur.parentElement;
     if (STOP_IDS.has(p.id) || p.tagName === 'BODY') return cur;
+    const organics = p.querySelectorAll(ORGANIC);
+    for (const o of organics) {
+      if (!cur.contains(o)) return cur;
+    }
     cur = p;
   }
   return null;
@@ -47,8 +52,10 @@ function purge() {
   });
 
   document.querySelectorAll(
-    '[data-subtree="aio"], [data-attrid*="GenerativeAI"], #m-x-content'
+    '#m-x-content, div.M8OgIe, [jscontroller="AkrxPe"], [data-subtree="aio"]'
   ).forEach(el => hide(findSection(el)));
+
+  document.querySelectorAll('#tads, #bottomads, [data-text-ad]').forEach(hide);
 }
 
 let queued = false;
