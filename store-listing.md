@@ -1,4 +1,4 @@
-# Chrome Web Store — Ten Blue Links v0.3.2
+# Chrome Web Store — Ten Blue Links v0.3.3
 
 Developer profile to match the existing **And/or Labs Inc.** account
 (same as Slop or Not!): andorlabs.ca, EU trader, Calgary AB address.
@@ -6,7 +6,9 @@ Developer profile to match the existing **And/or Labs Inc.** account
 ---
 
 ## Name
-Ten Blue Links
+Ten Blue Links — Hide AI Overview & Clutter
+
+(43/45 chars — distinctive brand at the start, keywords trailing for Chrome Web Store discovery. The brand can be shortened back to "Ten Blue Links" post-launch once organic install velocity is established.)
 
 ## Short description (132 char max)
 Removes AI Overviews, ads, and clutter from Google Search. Hides everything between you and the ten blue links — automatically.
