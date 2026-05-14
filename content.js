@@ -19,7 +19,21 @@ const HIDE_HEADINGS = new Set([
   'Things to consider',
   'Shopping results',
   'Sponsored',
+  'Sponsored products',
+  'Popular products',
+  'In stores nearby',
+  'Local Results',
+  'Places',
+  'Map',
+  'More places',
 ]);
+
+const HIDE_PREFIXES = [
+  'Deals on ',
+  'Top deals on ',
+  'Shop ',
+  'See more on ',
+];
 
 const STOP_IDS = new Set(['center_col', 'rcnt', 'main', 'search', 'rso', 'botstuff', 'cnt']);
 
@@ -48,7 +62,9 @@ function hide(el) {
 function purge() {
   document.querySelectorAll('h2, h3, [role="heading"]').forEach(h => {
     const text = (h.textContent || '').trim();
-    if (HIDE_HEADINGS.has(text)) hide(findSection(h));
+    if (HIDE_HEADINGS.has(text) || HIDE_PREFIXES.some(p => text.startsWith(p))) {
+      hide(findSection(h));
+    }
   });
 
   document.querySelectorAll(
