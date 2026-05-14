@@ -1,9 +1,9 @@
 /*
- * Fast-paint hides for known-stable selectors verified against live DOM
- * 2026-05-14. content.js handles class-name drift via heading-text matching.
+ * Fast-paint hides + layout fixes verified against live DOM 2026-05-14.
+ * content.js handles the structural allowlist for everything else.
  */
 
-/* AI Overview wrapper and its inner skeleton */
+/* AI Overview wrapper and skeleton */
 div.M8OgIe,
 #m-x-content,
 [jscontroller="AkrxPe"],
@@ -25,14 +25,36 @@ div[aria-label="Ads" i],
 .commercial-unit-desktop-rhs,
 g-shopping-pack,
 
-/* Knowledge Panel / Right rail */
+/* Knowledge Panel / Right rail (also reclaims horizontal space) */
 #rhs,
 
-/* Featured Snippet cards (when not the main answer) */
-.ULSxyf .g-blk,
+/* People Also Ask — accordion items use this semantic class even when the
+   section heading is absent on some SERP variants */
+.related-question-pair,
+
+/* Featured-image thumbnails next to organic results
+   (favicons live in .XNo5Ab and are left alone) */
+.uhHOwf,
 
 /* "Things to know" widgets */
 [data-attrid*="things_to_know"],
 [data-attrid*="things_to_consider"] {
   display: none !important;
+}
+
+/* --- Layout: center and widen the results column ---
+ * #rcnt is display: grid with a 3-column track that reserves ~150px for
+ * the left rail and the right rail (#rhs). With #rhs hidden and the
+ * left rail empty, the result column ends up offset 150px from the left
+ * edge of the viewport, with hundreds of pixels of dead space on the
+ * right. Override the grid template to a centered single-column layout. */
+#rcnt {
+  grid-template-columns: 1fr min(720px, 90vw) 1fr !important;
+}
+
+#center_col {
+  grid-column: 2 !important;
+  width: auto !important;
+  max-width: none !important;
+  margin-left: 0 !important;
 }

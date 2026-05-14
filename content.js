@@ -36,14 +36,17 @@ function hide(el) {
   el.dataset.tbl = '1';
 }
 
+// Section wrappers Google uses across queries — fall-back when a section
+// renders without a [role="heading"] element (some SERP A/B variants).
+const SECTION_WRAPPERS = 'div.ULSxyf, div.MjjYud, div.eJH8qe';
+
 function purge() {
   // Stable selectors with known semantics — fast-path before the walk-up.
   document.querySelectorAll(
-    '#tads, #bottomads, [data-text-ad], div.M8OgIe, #m-x-content'
+    '#tads, #bottomads, [data-text-ad], div.M8OgIe, #m-x-content, .related-question-pair'
   ).forEach(hide);
 
-  // Structural allowlist: any heading whose enclosing section has neither
-  // organic results nor pagination is noise.
+  // Pass 1: structural allowlist via headings.
   document.querySelectorAll('[role="heading"], h2.bNg8Rb').forEach(h => {
     if (h.matches(ORGANIC)) return;
     if (h.closest(SKIP_HEADING_IN)) return;
@@ -52,6 +55,14 @@ function purge() {
     if (section.querySelector(ORGANIC)) return;
     if (section.querySelector(KEEP_NAV)) return;
     hide(section);
+  });
+
+  // Pass 2: known section-wrapper classes that may lack [role="heading"].
+  document.querySelectorAll(SECTION_WRAPPERS).forEach(el => {
+    if (el.dataset.tbl === '1') return;
+    if (el.querySelector(ORGANIC)) return;
+    if (el.querySelector(KEEP_NAV)) return;
+    hide(el);
   });
 }
 
