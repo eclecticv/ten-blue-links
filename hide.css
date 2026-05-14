@@ -1,0 +1,47 @@
+/*
+ * Selectors targeting Google SERP clutter as of 2026-05.
+ * Google rotates jsname/jscontroller hashes; expect ~monthly drift.
+ * Group by intent so it's obvious what to update when a section reappears.
+ */
+
+/* --- AI Overviews & AI Mode entry points --- */
+div[data-attrid*="GenerativeAI"],
+div[data-subtree="aio"],
+[data-async-context*="ai_overview"],
+#m-x-content,
+a[href*="udm=50"],
+[aria-label*="AI Mode" i],
+[aria-label*="Ask AI" i],
+
+/* --- Sponsored / Ads (top, bottom, inline, shopping) --- */
+#tads,
+#tadsb,
+#bottomads,
+div[data-text-ad],
+div[aria-label="Ads" i],
+.commercial-unit-desktop-top,
+.commercial-unit-desktop-rhs,
+g-shopping-pack,
+
+/* --- People Also Ask --- */
+div[jsname="Cpkphb"],
+div[data-initq],
+[data-async-context*="related_question"],
+related-question-pair,
+
+/* --- Discussions, Forums, Perspectives --- */
+[data-async-context*="discussions_and_forums"],
+[data-async-context*="perspectives"],
+
+/* --- Knowledge Panel / Right rail --- */
+#rhs,
+
+/* --- Featured Snippet cards --- */
+.kp-blk,
+.ULSxyf .g-blk,
+
+/* --- "Things to know" / "Things to consider" widgets --- */
+[data-attrid*="things_to_know"],
+[data-attrid*="things_to_consider"] {
+  display: none !important;
+}
