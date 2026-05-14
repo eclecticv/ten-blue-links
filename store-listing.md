@@ -78,8 +78,7 @@ Required to inject the content script that performs the hiding.
 - Not being used or transferred for purposes that are unrelated to the item's core functionality
 - Not being used or transferred to determine creditworthiness or for lending purposes
 
-**Privacy policy URL:**
-Suggested host: `https://andorlabs.ca/ten-blue-links/privacy/` or a GitHub Pages site (same pattern as Slop or Not). Privacy policy content below.
+**Privacy policy URL:** `https://eclecticv.github.io/ten-blue-links/privacy/` ✅ live
 
 ---
 
@@ -142,12 +141,10 @@ Capture from your real Chrome with Ten Blue Links installed. Suggested:
 ---
 
 ## Support URL
-
-Suggested: a GitHub repo issues page, or `https://andorlabs.ca/contact/`.
+`https://github.com/eclecticv/ten-blue-links/issues` ✅ live
 
 ## Homepage URL
-
-Suggested: `https://andorlabs.ca/ten-blue-links/` (or the repo).
+`https://eclecticv.github.io/ten-blue-links/` ✅ live
 
 ---
 
@@ -180,8 +177,9 @@ AI Overviews, sponsored results, People Also Ask, and knowledge panel hidden by 
 - [x] Detailed description copy
 - [x] Permissions justification
 - [x] Single purpose statement
-- [ ] **1–5 screenshots at 1280×800** (capture in your browser)
-- [ ] **Privacy policy hosted at a reachable URL** (paste content above to andorlabs.ca or Pages)
-- [ ] **Support URL** (repo issues page or contact page)
+- [x] **3 screenshots at 1280×800** in `screenshots/` (more can be added)
+- [x] **Privacy policy hosted** at `https://eclecticv.github.io/ten-blue-links/privacy/`
+- [x] **Support URL** at `https://github.com/eclecticv/ten-blue-links/issues`
+- [x] **Public repo** at `https://github.com/eclecticv/ten-blue-links`
 - [ ] Use existing **And/or Labs Inc.** developer account
 - [ ] Pay one-time **$5 developer fee** if not already paid (Slop or Not implies you have)
