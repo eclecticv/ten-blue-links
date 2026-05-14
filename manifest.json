@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Ten Blue Links",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Removes AI Overviews, ads, and clutter from Google Search. No settings. Just results.",
   "icons": {
     "16": "icon16.png",
