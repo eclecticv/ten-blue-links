@@ -42,19 +42,20 @@ g-shopping-pack,
   display: none !important;
 }
 
-/* --- Layout: center and widen the results column ---
- * #rcnt is display: grid with a 3-column track that reserves ~150px for
- * the left rail and the right rail (#rhs). With #rhs hidden and the
- * left rail empty, the result column ends up offset 150px from the left
- * edge of the viewport, with hundreds of pixels of dead space on the
- * right. Override the grid template to a centered single-column layout. */
-#rcnt {
-  grid-template-columns: 1fr min(720px, 90vw) 1fr !important;
+/* --- Layout: widen the results column without floating it to the middle ---
+ * #rcnt is a 22-column CSS grid (130px + 20*36px + 130px). With #rhs
+ * hidden, the right-rail column track is empty but still reserved.
+ * Extending #center_col across cols 2 through -1 reclaims that space
+ * while keeping the column anchored to Google's natural left position
+ * (~150px) — so scan-position muscle memory survives. Cap the visible
+ * width at 760px for readable line length. */
+#center_col {
+  grid-column: 2 / -1 !important;
+  width: 760px !important;
+  max-width: 100% !important;
 }
 
-#center_col {
-  grid-column: 2 !important;
+#search, #rso {
   width: auto !important;
-  max-width: none !important;
-  margin-left: 0 !important;
+  max-width: 100% !important;
 }
