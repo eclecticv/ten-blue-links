@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 560">
+  <rect width="1400" height="560" fill="#ffffff"/>
+  <g transform="translate(110 156)">
+    <rect width="248" height="248" rx="48" fill="#f8fafc"/>
+    <rect x="42" y="66" width="164" height="22" rx="11" fill="#2563eb"/>
+    <rect x="42" y="113" width="164" height="22" rx="11" fill="#2563eb"/>
+    <rect x="42" y="160" width="116" height="22" rx="11" fill="#2563eb"/>
+  </g>
+  <text x="430" y="252" font-family="Helvetica, Arial, sans-serif" font-size="72" font-weight="700" fill="#0f172a">Ten Blue Links</text>
+  <text x="430" y="304" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="400" fill="#475569">Google Search, decluttered.</text>
+  <text x="430" y="380" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#64748b">AI Overviews, ads, and noise — hidden.</text>
+  <text x="430" y="412" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#64748b">Real results — kept.</text>
+</svg>
